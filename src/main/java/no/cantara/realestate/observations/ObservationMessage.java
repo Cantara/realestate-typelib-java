@@ -4,7 +4,7 @@ import java.time.Instant;
 
 /**
  * {
- *   "tfm2recId": "9fcc579c-10e2-4241-a28c-1fbf0ad9b5cc",
+ *   "recId": "9fcc579c-10e2-4241-a28c-1fbf0ad9b5cc",
  *   "realEstate": "RE1",
  *   "building": null,
  *   "floor": "4",
