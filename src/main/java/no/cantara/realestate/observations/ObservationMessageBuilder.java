@@ -3,7 +3,7 @@ package no.cantara.realestate.observations;
 import java.time.Instant;
 
 public final class ObservationMessageBuilder {
-    private String recId;
+    private String sensorId;
     private String tfm;
     private String realEstate;
     private String building;
@@ -16,15 +16,15 @@ public final class ObservationMessageBuilder {
     private String name;
     private String sensorType;
     private String measurementUnit;
-    private Number observedValue;
-    private Instant observedAt;
+    private Number value;
+    private Instant observationTime;
     private Instant receivedAt;
 
     public ObservationMessageBuilder() {
     }
 
-    public ObservationMessageBuilder withRecId(String recId) {
-        this.recId = recId;
+    public ObservationMessageBuilder withSensorId(String recId) {
+        this.sensorId = recId;
         return this;
     }
 
@@ -88,13 +88,13 @@ public final class ObservationMessageBuilder {
         return this;
     }
 
-    public ObservationMessageBuilder withObservedValue(Number observedValue) {
-        this.observedValue = observedValue;
+    public ObservationMessageBuilder withValue(Number value) {
+        this.value = value;
         return this;
     }
 
-    public ObservationMessageBuilder withObservedAt(Instant observedAt) {
-        this.observedAt = observedAt;
+    public ObservationMessageBuilder withObservationTime(Instant observationTime) {
+        this.observationTime = observationTime;
         return this;
     }
 
@@ -105,7 +105,7 @@ public final class ObservationMessageBuilder {
 
     public ObservationMessage build() {
         ObservationMessage observationMessage = new ObservationMessage();
-        observationMessage.setSensorId(recId);
+        observationMessage.setSensorId(sensorId);
         observationMessage.setTfm(tfm);
         observationMessage.setRealEstate(realEstate);
         observationMessage.setBuilding(building);
@@ -118,8 +118,8 @@ public final class ObservationMessageBuilder {
         observationMessage.setName(name);
         observationMessage.setSensorType(sensorType);
         observationMessage.setMeasurementUnit(measurementUnit);
-        observationMessage.setValue(observedValue);
-        observationMessage.setObservationTime(observedAt);
+        observationMessage.setValue(value);
+        observationMessage.setObservationTime(observationTime);
         observationMessage.setReceivedAt(receivedAt);
         return observationMessage;
     }
