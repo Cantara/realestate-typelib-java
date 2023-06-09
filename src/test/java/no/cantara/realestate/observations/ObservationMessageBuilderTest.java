@@ -46,7 +46,7 @@ class ObservationMessageBuilderTest {
                 .withTfm("TFM12345")
                 .build();
         assertNotNull(observationMessage);
-        assertEquals("rec1", observationMessage.getRecId());
+        assertEquals("rec1", observationMessage.getSensorId());
         assertEquals("RE1", observationMessage.getRealEstate());
         assertEquals("Building1", observationMessage.getBuilding());
         assertEquals("04", observationMessage.getFloor());
@@ -57,8 +57,8 @@ class ObservationMessageBuilderTest {
         assertEquals("light", observationMessage.getElectricityZone());
         assertEquals("temp", observationMessage.getSensorType());
         assertEquals("C", observationMessage.getMeasurementUnit());
-        assertEquals(22, observationMessage.getObservedValue());
-        assertEquals(observedAt.toString(),observationMessage.getObservedAt().toString());
+        assertEquals(22, observationMessage.getValue());
+        assertEquals(observedAt.toString(),observationMessage.getObservationTime().toString());
         assertEquals(receivedAt.toString(), observationMessage.getReceivedAt().toString());
         assertEquals("TFM12345", observationMessage.getTfm());
 

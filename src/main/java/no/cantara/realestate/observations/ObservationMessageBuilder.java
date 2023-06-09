@@ -105,7 +105,7 @@ public final class ObservationMessageBuilder {
 
     public ObservationMessage build() {
         ObservationMessage observationMessage = new ObservationMessage();
-        observationMessage.setRecId(recId);
+        observationMessage.setSensorId(recId);
         observationMessage.setTfm(tfm);
         observationMessage.setRealEstate(realEstate);
         observationMessage.setBuilding(building);
@@ -118,8 +118,8 @@ public final class ObservationMessageBuilder {
         observationMessage.setName(name);
         observationMessage.setSensorType(sensorType);
         observationMessage.setMeasurementUnit(measurementUnit);
-        observationMessage.setObservedValue(observedValue);
-        observationMessage.setObservedAt(observedAt);
+        observationMessage.setValue(observedValue);
+        observationMessage.setObservationTime(observedAt);
         observationMessage.setReceivedAt(receivedAt);
         return observationMessage;
     }

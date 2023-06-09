@@ -4,7 +4,7 @@ import java.time.Instant;
 
 /**
  * {
- *   "recId": "9fcc579c-10e2-4241-a28c-1fbf0ad9b5cc",
+ *   "sensorId": "9fcc579c-10e2-4241-a28c-1fbf0ad9b5cc",
  *   "realEstate": "RE1",
  *   "building": null,
  *   "floor": "4",
@@ -19,7 +19,7 @@ import java.time.Instant;
  */
 public class ObservationMessage implements Cloneable {
 
-    private String recId;
+    private String sensorId;
     private String tfm;
     private String realEstate;
     private String building;
@@ -32,15 +32,15 @@ public class ObservationMessage implements Cloneable {
     private String name;
     private String sensorType;
     private String measurementUnit;
-    private Number observedValue;
-    private Instant observedAt;
+    private Number value;
+    private Instant observationTime;
     private Instant receivedAt;
 
     public ObservationMessage() {
     }
 
-    public ObservationMessage(String recId, String tfm, String realEstate, String building, String floor, String section, String servesRoom, String placementRoom, String climateZone, String electricityZone, String name, String sensorType, String measurementUnit) {
-        this.recId = recId;
+    public ObservationMessage(String sensorId, String tfm, String realEstate, String building, String floor, String section, String servesRoom, String placementRoom, String climateZone, String electricityZone, String name, String sensorType, String measurementUnit) {
+        this.sensorId = sensorId;
         this.tfm = tfm;
         this.realEstate = realEstate;
         this.building = building;
@@ -55,12 +55,12 @@ public class ObservationMessage implements Cloneable {
         this.measurementUnit = measurementUnit;
     }
 
-    public String getRecId() {
-        return recId;
+    public String getSensorId() {
+        return sensorId;
     }
 
-    public void setRecId(String recId) {
-        this.recId = recId;
+    public void setSensorId(String sensorId) {
+        this.sensorId = sensorId;
     }
 
     public String getTfm() {
@@ -159,20 +159,20 @@ public class ObservationMessage implements Cloneable {
         this.measurementUnit = measurementUnit;
     }
 
-    public Number getObservedValue() {
-        return observedValue;
+    public Number getValue() {
+        return value;
     }
 
-    public void setObservedValue(Number observedValue) {
-        this.observedValue = observedValue;
+    public void setValue(Number value) {
+        this.value = value;
     }
 
-    public Instant getObservedAt() {
-        return observedAt;
+    public Instant getObservationTime() {
+        return observationTime;
     }
 
-    public void setObservedAt(Instant observedAt) {
-        this.observedAt = observedAt;
+    public void setObservationTime(Instant observationTime) {
+        this.observationTime = observationTime;
     }
 
     public Instant getReceivedAt() {
