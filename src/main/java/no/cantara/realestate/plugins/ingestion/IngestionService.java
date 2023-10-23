@@ -11,7 +11,7 @@ public interface IngestionService {
 
     String getName();
 
-    void initialize(Properties config);
+    boolean initialize(Properties config);
 
     void openConnection(ObservationListener observationListener);
     void closeConnection();
@@ -19,6 +19,7 @@ public interface IngestionService {
     void addSubscriptions(List<SensorId> sensorIds);
     void addSubscription(SensorId sensorId);
     void removeSubscription(SensorId sensorId);
+    long getSubscriptionsCount();
 
 
     boolean isInitialized();
