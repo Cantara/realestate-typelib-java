@@ -1,4 +1,4 @@
-package no.cantara.realestate.clooudconnector;
+package no.cantara.realestate.cloudconnector;
 
 import org.slf4j.helpers.MessageFormatter;
 

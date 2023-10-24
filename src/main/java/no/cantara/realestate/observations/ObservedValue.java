@@ -1,6 +1,6 @@
 package no.cantara.realestate.observations;
 
-import no.cantara.realestate.SensorId;
+import no.cantara.realestate.sensors.SensorId;
 
 import java.time.Instant;
 

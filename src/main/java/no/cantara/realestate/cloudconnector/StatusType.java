@@ -1,4 +1,4 @@
-package no.cantara.realestate.clooudconnector;
+package no.cantara.realestate.cloudconnector;
 
 public enum StatusType {
     RETRY_MAY_FIX_ISSUE,

@@ -1,6 +1,6 @@
-package no.cantara.realestate;
+package no.cantara.realestate.sensors;
 
-@Deprecated //"use no.cantara.realestate.sensors.SensorId from typelib-java instead"
+
 public abstract class SensorId {
 
     private String id;

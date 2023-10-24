@@ -1,7 +1,7 @@
 package no.cantara.realestate.plugins.ingestion;
 
-import no.cantara.realestate.SensorId;
 import no.cantara.realestate.observations.ObservationListener;
+import no.cantara.realestate.sensors.SensorId;
 
 import java.util.List;
 import java.util.Properties;
