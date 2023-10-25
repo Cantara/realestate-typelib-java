@@ -10,6 +10,8 @@ public class DesigoSensorId extends SensorId {
     private final String desigoId;
     private final String desigoPropertyId;
 
+    private String trendId;
+
 
     public DesigoSensorId(String desigoId, String desigoPropertyId) {
         this.desigoId = desigoId;
@@ -26,6 +28,14 @@ public class DesigoSensorId extends SensorId {
 
     public String getDesigoPropertyId() {
         return desigoPropertyId;
+    }
+
+    public String getTrendId() {
+        return trendId;
+    }
+
+    public void setTrendId(String trendId) {
+        this.trendId = trendId;
     }
 
     @Override
@@ -46,6 +56,7 @@ public class DesigoSensorId extends SensorId {
         return "DesigoSensorId{" +
                 "desigoId='" + desigoId + '\'' +
                 ", desigoPropertyId='" + desigoPropertyId + '\'' +
+                ", trendId='" + trendId + '\'' +
                 "} " + super.toString();
     }
 }
