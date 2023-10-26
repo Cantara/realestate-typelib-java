@@ -1,5 +1,6 @@
 package no.cantara.realestate.plugins.config;
 
+import java.util.Map;
 import java.util.Properties;
 
 public class PluginConfig extends Properties {
@@ -21,5 +22,14 @@ public class PluginConfig extends Properties {
             return config.getProperty(key);
         }
         return defaultValue;
+    }
+
+    public static PluginConfig fromMap(Map<String, String> configMap) {
+        Properties properties = new Properties();
+        for (Map.Entry<String, String> objectObjectEntry :  configMap.entrySet()) {
+            properties.put(objectObjectEntry.getKey(), objectObjectEntry.getValue());
+        }
+        PluginConfig pluginConfig = new PluginConfig(properties);
+        return pluginConfig;
     }
 }
