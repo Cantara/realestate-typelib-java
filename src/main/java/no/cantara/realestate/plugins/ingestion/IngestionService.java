@@ -1,19 +1,20 @@
 package no.cantara.realestate.plugins.ingestion;
 
 import no.cantara.realestate.observations.ObservationListener;
+import no.cantara.realestate.plugins.config.PluginConfig;
+import no.cantara.realestate.plugins.notifications.NotificationListener;
 import no.cantara.realestate.sensors.SensorId;
 
 import java.util.List;
-import java.util.Properties;
 
 public interface IngestionService {
 
 
     String getName();
 
-    boolean initialize(Properties config);
+    boolean initialize(PluginConfig config);
 
-    void openConnection(ObservationListener observationListener);
+    void openConnection(ObservationListener observationListener, NotificationListener notificationListener);
     void closeConnection();
 
     void addSubscriptions(List<SensorId> sensorIds);

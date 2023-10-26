@@ -11,6 +11,8 @@ public class ObservedValue {
     private Instant observedAt;
     private String payloadJson;
 
+    private Boolean isReliable = null;
+
     public ObservedValue(SensorId sensorId, Number value) {
         this(sensorId, value, Instant.now());
     }
@@ -48,6 +50,14 @@ public class ObservedValue {
         this.payloadJson = payloadJson;
     }
 
+    public void setReliable(boolean isReliable) {
+        this.isReliable = isReliable;
+    }
+
+    public Boolean getIsReliable() {
+        return isReliable;
+    }
+
     @Override
     public String toString() {
         return "ObservedValue{" +
@@ -56,6 +66,7 @@ public class ObservedValue {
                 ", receivedAt=" + receivedAt +
                 ", observedAt=" + observedAt +
                 ", payloadJson='" + payloadJson + '\'' +
+                ", isReliable=" + isReliable +
                 '}';
     }
 }
