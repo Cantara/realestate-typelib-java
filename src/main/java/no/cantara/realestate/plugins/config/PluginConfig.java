@@ -5,21 +5,23 @@ import java.util.Properties;
 
 public class PluginConfig extends Properties {
 
-    Properties config;
+//    Properties config;
 
     public PluginConfig(Properties config) {
-        this.config = config;
+        for (Map.Entry<Object, Object> objectObjectEntry : config.entrySet()) {
+            setProperty((String) objectObjectEntry.getKey(), (String) objectObjectEntry.getValue());
+        }
     }
     public boolean asBoolean(String key, boolean defaultValue) {
-        if (config.containsKey(key)) {
-            return Boolean.parseBoolean(config.getProperty(key));
+        if (containsKey(key)) {
+            return Boolean.parseBoolean(getProperty(key));
         }
         return defaultValue;
     }
 
     public String asString(String key, String defaultValue) {
-        if (config.containsKey(key)) {
-            return config.getProperty(key);
+        if (containsKey(key)) {
+            return getProperty(key);
         }
         return defaultValue;
     }
