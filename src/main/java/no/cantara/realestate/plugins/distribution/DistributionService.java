@@ -9,7 +9,7 @@ public interface DistributionService {
     String getName();
 
     void initialize(Properties config);
-    boolean publish(ObservationMessage observationMessage);
+    void publish(ObservationMessage observationMessage);
 
     boolean isInitialized();
     boolean isHealthy();
