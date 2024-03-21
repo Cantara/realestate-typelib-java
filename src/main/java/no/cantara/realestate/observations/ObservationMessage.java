@@ -187,4 +187,26 @@ public class ObservationMessage implements Cloneable {
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
+
+    @Override
+    public String toString() {
+        return "ObservationMessage{" +
+                "sensorId='" + sensorId + '\'' +
+                ", tfm='" + tfm + '\'' +
+                ", realEstate='" + realEstate + '\'' +
+                ", building='" + building + '\'' +
+                ", floor='" + floor + '\'' +
+                ", section='" + section + '\'' +
+                ", servesRoom='" + servesRoom + '\'' +
+                ", placementRoom='" + placementRoom + '\'' +
+                ", climateZone='" + climateZone + '\'' +
+                ", electricityZone='" + electricityZone + '\'' +
+                ", name='" + name + '\'' +
+                ", sensorType='" + sensorType + '\'' +
+                ", measurementUnit='" + measurementUnit + '\'' +
+                ", value=" + value +
+                ", observationTime=" + observationTime +
+                ", receivedAt=" + receivedAt +
+                '}';
+    }
 }
