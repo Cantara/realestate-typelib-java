@@ -3,6 +3,7 @@ package no.cantara.realestate.importer;
 import no.cantara.realestate.semantics.rec.SensorRecObject;
 import no.cantara.realestate.sensors.MappedSensorId;
 import no.cantara.realestate.sensors.SensorId;
+import no.cantara.realestate.sensors.SensorSystem;
 import org.slf4j.Logger;
 
 import java.io.File;
@@ -44,6 +45,15 @@ public abstract class CsvSensorImporter implements SensorImporter {
         }
         return sensorIds;
     }
+
+    @Override
+    public List<SensorId> importSensorIds(SensorSystem sensorSystem) {
+        if (sensorSystem != null) {
+            return importSensors(sensorSystem.name());
+        }
+        return List.of();
+    }
+
     public List<MappedSensorId> importMappedId(String sourceType) {
         List<MappedSensorId> sensorIds = new ArrayList<>();
         List<Path> eligibleFiles = findEligibleFiles(sourceType);

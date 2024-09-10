@@ -1,40 +1,26 @@
 package no.cantara.realestate.sensors.ecostruxure;
 
 
-import no.cantara.realestate.sensors.SensorId;
+import no.cantara.realestate.sensors.SensorSystem;
+import no.cantara.realestate.sensors.TrendId;
 
-public class EcoStruxureTrendSensorId extends SensorId {
+public class EcoStruxureTrendSensorId extends TrendId {
 
-    private final String trendId;
     private String objectName;
     private String objectId;
 
     public EcoStruxureTrendSensorId(String trendId) {
-        this.trendId = trendId;
+        super(trendId, SensorSystem.ecostructure);
     }
 
     public String getTrendId() {
-        return trendId;
+        return getId();
     }
 
-    public String getObjectName() {
-        return objectName;
-    }
 
-    public void setObjectName(String objectName) {
-        this.objectName = objectName;
-    }
-
-    public String getObjectId() {
-        return objectId;
-    }
-
-    public void setObjectId(String objectId) {
-        this.objectId = objectId;
-    }
 
     public EcoStruxureTrendUniqueKey getMappingKey() {
-        return new EcoStruxureTrendUniqueKey(trendId);
+        return new EcoStruxureTrendUniqueKey(getTrendId());
     }
 
 

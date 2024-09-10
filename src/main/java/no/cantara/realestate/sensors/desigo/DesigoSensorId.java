@@ -3,31 +3,32 @@ package no.cantara.realestate.sensors.desigo;
 
 import no.cantara.realestate.sensors.SensorId;
 
-import java.util.Objects;
+import static no.cantara.realestate.sensors.SensorSystem.desigo;
 
 public class DesigoSensorId extends SensorId {
 
-    private final String desigoId;
-    private final String desigoPropertyId;
+    public static final String DESIGO_ID = "desigoId";
+    public static final String DESIGO_PROPERTY_ID = "desigoPropertyId";
 
     private String trendId;
 
 
     public DesigoSensorId(String desigoId, String desigoPropertyId) {
-        this.desigoId = desigoId;
-        this.desigoPropertyId = desigoPropertyId;
+        setSensorSystem(desigo);
+        addIdentifier(DESIGO_ID, desigoId);
+        addIdentifier(DESIGO_PROPERTY_ID, desigoPropertyId);
     }
 
     public DesigoUniqueKey getMappingKey() {
-        return new DesigoUniqueKey(desigoId, desigoPropertyId);
+        return new DesigoUniqueKey(getDesigoId(), getDesigoPropertyId());
     }
 
     public String getDesigoId() {
-        return desigoId;
+        return getIdentifier(DESIGO_ID);
     }
 
     public String getDesigoPropertyId() {
-        return desigoPropertyId;
+        return getIdentifier(DESIGO_PROPERTY_ID);
     }
 
     public String getTrendId() {
@@ -38,25 +39,4 @@ public class DesigoSensorId extends SensorId {
         this.trendId = trendId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        DesigoSensorId that = (DesigoSensorId) o;
-        return Objects.equals(desigoId, that.desigoId) && Objects.equals(desigoPropertyId, that.desigoPropertyId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(desigoId, desigoPropertyId);
-    }
-
-    @Override
-    public String toString() {
-        return "DesigoSensorId{" +
-                "desigoId='" + desigoId + '\'' +
-                ", desigoPropertyId='" + desigoPropertyId + '\'' +
-                ", trendId='" + trendId + '\'' +
-                "} " + super.toString();
-    }
 }
