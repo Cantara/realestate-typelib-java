@@ -5,6 +5,7 @@ import no.cantara.realestate.plugins.config.PluginConfig;
 import no.cantara.realestate.plugins.notifications.NotificationListener;
 import no.cantara.realestate.sensors.SensorId;
 
+import java.time.Instant;
 import java.util.List;
 
 public interface IngestionService {
@@ -28,4 +29,5 @@ public interface IngestionService {
 
     long getNumberOfMessagesImported();
     long getNumberOfMessagesFailed();
+    Instant getWhenLastMessageImported();
 }

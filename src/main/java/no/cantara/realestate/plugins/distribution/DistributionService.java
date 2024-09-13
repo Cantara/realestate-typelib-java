@@ -2,6 +2,7 @@ package no.cantara.realestate.plugins.distribution;
 
 import no.cantara.realestate.observations.ObservationMessage;
 
+import java.time.Instant;
 import java.util.Properties;
 
 public interface DistributionService {
@@ -16,4 +17,5 @@ public interface DistributionService {
 
     long getNumberOfMessagesPublished();
     long getNumberOfMessagesFailed();
+    Instant getWhenLastMessageDistributed();
 }
