@@ -17,5 +17,6 @@ public interface DistributionService {
 
     long getNumberOfMessagesPublished();
     long getNumberOfMessagesFailed();
+    long getNumberOfMessagesInQueue();
     Instant getWhenLastMessageDistributed();
 }
