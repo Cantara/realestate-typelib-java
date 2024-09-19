@@ -18,7 +18,7 @@ public class TrendSample {
 
     private Boolean isReliable;
     private Instant observedAt;
-    private Number value;
+    private Value value;
     private String sensorId;
 
     public TrendSample() {
@@ -69,11 +69,25 @@ public class TrendSample {
         this.observedAt = observedAt;
     }
 
-    public Number getValue() {
+    public Value getValue() {
         return value;
     }
 
-    public void setValue(Number value) {
+    public Number getNumericValue() {
+        Number valNum = null;
+        if (value != null && value.getValue() instanceof Number) {
+            valNum = (Number) value.getValue();
+        }
+        return valNum;
+    }
+    public void setValueDeep(Integer valueDeep) {
+        if (value == null) {
+            value = new Value();
+        }
+        value.setValue(valueDeep);
+    }
+
+    public void setValue(Value value) {
         this.value = value;
     }
 
