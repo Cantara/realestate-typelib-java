@@ -17,9 +17,9 @@ import java.util.Set;
 public interface BasClient {
 
 
-    Set<? extends TrendSample> findTrendSamples(String bearerToken, String trendId) throws URISyntaxException;
+//    Set<? extends TrendSample> findTrendSamples(String bearerToken, String trendId) throws URISyntaxException;
 
-    Set<? extends TrendSample> findTrendSamples(String trendId, int take, int skip) throws URISyntaxException, LogonFailedException;
+//    Set<? extends TrendSample> findTrendSamples(String trendId, int take, int skip) throws URISyntaxException, LogonFailedException;
 
     Set<? extends TrendSample> findTrendSamplesByDate(String trendId, int take, int skip, Instant onAndAfterDateTime) throws URISyntaxException, LogonFailedException;
 
