@@ -1,6 +1,7 @@
 package no.cantara.realestate.observations;
 
 import java.time.Instant;
+import java.util.Map;
 import java.util.Objects;
 
 /*
@@ -18,8 +19,9 @@ public class TrendSample {
 
     private Boolean isReliable;
     private Instant observedAt;
-    private Value value;
+    private Number value;
     private String sensorId;
+    private Map<String,Object> observationMetadata;
 
     public TrendSample() {
     }
@@ -45,8 +47,6 @@ public class TrendSample {
         isReliable = reliable;
     }
 
-
-
     public void setObservedAt(String timestamp) {
 //        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
 //        LocalDate parsedDate = LocalDate.parse(timestamp, formatter);
@@ -69,25 +69,11 @@ public class TrendSample {
         this.observedAt = observedAt;
     }
 
-    public Value getValue() {
+    public Number getValue() {
         return value;
     }
 
-    public Number getNumericValue() {
-        Number valNum = null;
-        if (value != null && value.getValue() instanceof Number) {
-            valNum = (Number) value.getValue();
-        }
-        return valNum;
-    }
-    public void setValueDeep(Integer valueDeep) {
-        if (value == null) {
-            value = new Value();
-        }
-        value.setValue(valueDeep);
-    }
-
-    public void setValue(Value value) {
+    public void setValue(Number value) {
         this.value = value;
     }
 
@@ -97,6 +83,14 @@ public class TrendSample {
 
     public String getSensorId() {
         return sensorId;
+    }
+
+    public Map<String, Object> getObservationMetadata() {
+        return observationMetadata;
+    }
+
+    public void setObservationMetadata(Map<String, Object> observationMetadata) {
+        this.observationMetadata = observationMetadata;
     }
 
     @Override
