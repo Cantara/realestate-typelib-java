@@ -52,6 +52,10 @@ public class RealestateCloudconnectorException extends RuntimeException {
         return uuid.toString();
     }
 
+    public Enum<StatusType> getStatusType() {
+        return statusType;
+    }
+
 
 }
 
