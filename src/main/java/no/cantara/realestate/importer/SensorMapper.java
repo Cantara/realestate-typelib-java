@@ -1,7 +1,7 @@
 package no.cantara.realestate.importer;
 
 
-import no.cantara.realestate.semantics.rec.SensorRecObject;
+import no.cantara.realestate.rec.SensorRecObject;
 import no.cantara.realestate.sensors.tfm.Tfm;
 
 import java.util.List;
