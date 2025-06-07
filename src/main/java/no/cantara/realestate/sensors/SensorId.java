@@ -32,6 +32,10 @@ public class SensorId {
         this.id = id;
     }
 
+    public String getTwinId() {
+        return id;
+    }
+
     public Map<String, String> getIdentifiers() {
         return identifiers;
     }

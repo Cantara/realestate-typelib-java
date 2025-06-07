@@ -1,8 +1,8 @@
 package no.cantara.realestate.rec;
 
-public class RecObject {
+public class RecTags {
 
-    private String recId;
+    private String twinId;
     private String realEstate;
     private String building;
     private String floor;
@@ -13,21 +13,23 @@ public class RecObject {
     private String climateZone;
     private String electricityZone;
     private String sensorType;
+    private String sensorSystem;
+    private String sensorId;
 
 
-    public RecObject() {
+    public RecTags() {
     }
 
-    public RecObject(String recId) {
-        this.recId = recId;
+    public RecTags(String twinId) {
+        this.twinId = twinId;
     }
 
-    public String getRecId() {
-        return recId;
+    public String getTwinId() {
+        return twinId;
     }
 
-    public void setRecId(String recId) {
-        this.recId = recId;
+    public void setTwinId(String twinId) {
+        this.twinId = twinId;
     }
 
     public String getRealEstate() {
@@ -102,16 +104,34 @@ public class RecObject {
         this.sensorType = sensorType;
     }
 
+    public String getSensorId() {
+        return sensorId;
+    }
+
+    public void setSensorId(String sensorId) {
+        this.sensorId = sensorId;
+    }
+
+    public String getSensorSystem() {
+        return sensorSystem;
+    }
+
+    public void setSensorSystem(String sensorSystem) {
+        this.sensorSystem = sensorSystem;
+    }
+
     /**
      *
-     * @param propertyName
+     * @param tag
      * @return
-     * @throws IllegalArgumentException if propertyName is not a valid property name
+     * @throws IllegalArgumentException if tag is not a valid name
      */
-    public String getProperty(String propertyName) {
-        switch (propertyName) {
+    public String getTagValue(String tag) {
+        switch (tag) {
             case "recId":
-                return recId;
+            case "twinId":
+            case "id":
+                return twinId;
             case "realEstate":
                 return realEstate;
             case "building":
@@ -130,17 +150,21 @@ public class RecObject {
                 return section;
             case "sensorType":
                 return sensorType;
+            case "sensorSystem":
+                return sensorSystem;
+            case "sensorId":
+                return sensorId;
             default:
-                throw new IllegalArgumentException("Unknown property: " + propertyName);
+                throw new IllegalArgumentException("Unknown property: " + tag);
         }
     }
 
     @Override
     public String toString() {
-        return "RecObject{" +
-                "recId='" + recId + '\'' +
+        return "RecTags{" +
+                "building='" + building + '\'' +
+                ", twinId='" + twinId + '\'' +
                 ", realEstate='" + realEstate + '\'' +
-                ", building='" + building + '\'' +
                 ", floor='" + floor + '\'' +
                 ", section='" + section + '\'' +
                 ", placementRoom='" + placementRoom + '\'' +
@@ -148,6 +172,8 @@ public class RecObject {
                 ", climateZone='" + climateZone + '\'' +
                 ", electricityZone='" + electricityZone + '\'' +
                 ", sensorType='" + sensorType + '\'' +
+                ", sensorSystem='" + sensorSystem + '\'' +
+                ", sensorId='" + sensorId + '\'' +
                 '}';
     }
 }
