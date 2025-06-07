@@ -7,29 +7,34 @@ import no.cantara.realestate.sensors.SensorSystemId;
 import java.util.*;
 import java.util.stream.Collectors;
 
-// Test implementation of RecRepository
-public class RecRepository {
+// Test implementation of RecRepositoryTestImpl
+public class RecRepositoryTestImpl implements RecRepository {
 
     private Map<SensorId, RecTags> recTags = new HashMap<>();
 
+    @Override
     public void addRecTags(SensorId sensorId, RecTags tags) {
         recTags.put(sensorId, tags);
     }
 
+    @Override
     public List<RecTags> getRecTagsByTwinId(String twinId) {
         return recTags.keySet().stream().filter(sensorId -> sensorId.getTwinId() != null && sensorId.getTwinId().equals(twinId))
                 .map(recTags::get)
                 .collect(Collectors.toList());
     }
 
+    @Override
     public RecTags getRecTagsBySensorId(SensorId sensorId) {
         return recTags.get(sensorId);
     }
 
+    @Override
     public List<RecTags> findBySensorSystem(SensorSystem sensorSystem) {
         return recTags.values().stream().filter(r -> r.getSensorSystem().equals(sensorSystem.name())).collect(Collectors.toList());
     }
 
+    @Override
     public List<RecTags> findBySensorSystemId(SensorSystemId sensorSystemId) {
         SensorSystem sensorSystem = sensorSystemId.getSensorSystem();
         List<String> identifierKeys = sensorSystemId.getIdentifierKeys();

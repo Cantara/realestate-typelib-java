@@ -17,10 +17,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class RecRepositoryTest {
 
 
-    private RecRepository recRepo;
+    private RecRepositoryTestImpl recRepo;
     @BeforeEach
     void setup() {
-        recRepo = new RecRepository();
+        recRepo = new RecRepositoryTestImpl();
         addTestData();
     }
 
