@@ -15,6 +15,7 @@ public class RecTags {
     private String sensorType;
     private String sensorSystem;
     private String sensorId;
+    private String tfm;
 
 
     public RecTags() {
@@ -120,6 +121,14 @@ public class RecTags {
         this.sensorSystem = sensorSystem;
     }
 
+    public String getTfm() {
+        return tfm;
+    }
+
+    public void setTfm(String tfm) {
+        this.tfm = tfm;
+    }
+
     /**
      *
      * @param tag
@@ -174,6 +183,7 @@ public class RecTags {
                 ", sensorType='" + sensorType + '\'' +
                 ", sensorSystem='" + sensorSystem + '\'' +
                 ", sensorId='" + sensorId + '\'' +
+                ", tfm='" + tfm + '\'' +
                 '}';
     }
 }

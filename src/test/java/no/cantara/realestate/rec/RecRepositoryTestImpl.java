@@ -69,4 +69,9 @@ public class RecRepositoryTestImpl implements RecRepository {
         // Return the values of the filtered recTags
         return filteredRecTags;
     }
+
+    @Override
+    public long size() {
+        return recTags.size();
+    }
 }

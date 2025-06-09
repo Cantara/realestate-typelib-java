@@ -16,4 +16,6 @@ public interface RecRepository {
     List<RecTags> findBySensorSystem(SensorSystem sensorSystem);
 
     List<RecTags> findBySensorSystemId(SensorSystemId sensorSystemId);
+
+    long size();
 }
