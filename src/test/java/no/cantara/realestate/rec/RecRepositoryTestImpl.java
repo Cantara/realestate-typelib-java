@@ -74,4 +74,9 @@ public class RecRepositoryTestImpl implements RecRepository {
     public long size() {
         return recTags.size();
     }
+
+    @Override
+    public Map<SensorId, RecTags> getAll() {
+        return recTags;
+    }
 }

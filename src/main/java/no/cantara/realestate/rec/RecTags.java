@@ -3,6 +3,7 @@ package no.cantara.realestate.rec;
 public class RecTags {
 
     private String twinId;
+    private String name;
     private String realEstate;
     private String building;
     private String floor;
@@ -16,6 +17,7 @@ public class RecTags {
     private String sensorSystem;
     private String sensorId;
     private String tfm;
+    private String measurementUnit;
 
 
     public RecTags() {
@@ -31,6 +33,14 @@ public class RecTags {
 
     public void setTwinId(String twinId) {
         this.twinId = twinId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getRealEstate() {
@@ -129,6 +139,14 @@ public class RecTags {
         this.tfm = tfm;
     }
 
+    public String getMeasurementUnit() {
+        return measurementUnit;
+    }
+
+    public void setMeasurementUnit(String measurementUnit) {
+        this.measurementUnit = measurementUnit;
+    }
+
     /**
      *
      * @param tag
@@ -173,6 +191,7 @@ public class RecTags {
         return "RecTags{" +
                 "building='" + building + '\'' +
                 ", twinId='" + twinId + '\'' +
+                ", name='" + name + '\'' +
                 ", realEstate='" + realEstate + '\'' +
                 ", floor='" + floor + '\'' +
                 ", section='" + section + '\'' +
@@ -184,6 +203,7 @@ public class RecTags {
                 ", sensorSystem='" + sensorSystem + '\'' +
                 ", sensorId='" + sensorId + '\'' +
                 ", tfm='" + tfm + '\'' +
+                ", measurementUnit='" + measurementUnit + '\'' +
                 '}';
     }
 }

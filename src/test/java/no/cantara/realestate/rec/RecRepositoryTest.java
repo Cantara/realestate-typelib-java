@@ -176,4 +176,9 @@ public class RecRepositoryTest {
     void testSize() {
         assertEquals(6, recRepo.size());
     }
+
+    @Test
+    void testGetAll() {
+        assertEquals(6, recRepo.getAll().size());
+    }
 }
