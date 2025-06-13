@@ -9,12 +9,8 @@ class DesigoSensorIdTest {
 
     @Test
     void testEquals() {
-        DesigoSensorId desigoSensorId =  new DesigoSensorId("desigoId1", "propertyId1");
-        desigoSensorId.setId("SensorId1");
-        desigoSensorId.setTrendId("trend1");
-        DesigoSensorId desigoSensorIdSame =  new DesigoSensorId("desigoId1", "propertyId1");
-        desigoSensorIdSame.setId("SensorId1");
-        desigoSensorIdSame.setTrendId("trend1");
+        DesigoSensorId desigoSensorId =  new DesigoSensorId("SensorId1","desigoId1", "propertyId1");
+        DesigoSensorId desigoSensorIdSame =  new DesigoSensorId("SensorId1","desigoId1", "propertyId1");
         assertTrue(desigoSensorId.equals(desigoSensorIdSame));
         assertEquals(desigoSensorId.hashCode(), desigoSensorIdSame.hashCode());
 

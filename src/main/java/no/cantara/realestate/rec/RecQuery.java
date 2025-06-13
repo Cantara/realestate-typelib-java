@@ -1,4 +1,4 @@
-package no.cantara.realestate.semantics.rec;
+package no.cantara.realestate.rec;
 
 
 import no.cantara.realestate.sensors.MappedSensorId;

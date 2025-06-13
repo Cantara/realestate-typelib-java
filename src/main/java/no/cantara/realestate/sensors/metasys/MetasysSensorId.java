@@ -10,10 +10,12 @@ public class MetasysSensorId extends SensorId {
     public static final String METASYS_OBJECT_ID = "metasysObjectId";
     public static final String METASYS_OBJECT_REFERENCE = "metasysObjectReference";
 
-//    private final String metasysObjectId;
-//    private final String metasysObjectReference;
+   public MetasysSensorId(String twinId, String metasysObjectId) {
+        this(twinId, metasysObjectId, null);
+    }
 
-    public MetasysSensorId(String metasysObjectId, String metasysObjectReference) {
+    public MetasysSensorId(String twinId, String metasysObjectId, String metasysObjectReference) {
+       super(twinId);
         setSensorSystem(metasys);
         addIdentifier(METASYS_OBJECT_ID, metasysObjectId);
         addIdentifier(METASYS_OBJECT_REFERENCE, metasysObjectReference);

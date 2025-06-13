@@ -2,18 +2,19 @@ package no.cantara.realestate.sensors.desigo;
 
 
 import no.cantara.realestate.sensors.SensorId;
+import no.cantara.realestate.sensors.SensorSystemId;
+
+import java.util.List;
 
 import static no.cantara.realestate.sensors.SensorSystem.desigo;
 
-public class DesigoSensorId extends SensorId {
+public class DesigoSensorId extends SensorId implements SensorSystemId {
 
     public static final String DESIGO_ID = "desigoId";
     public static final String DESIGO_PROPERTY_ID = "desigoPropertyId";
 
-    private String trendId;
-
-
-    public DesigoSensorId(String desigoId, String desigoPropertyId) {
+    public DesigoSensorId(String twinId, String desigoId, String desigoPropertyId) {
+        super(twinId);
         setSensorSystem(desigo);
         addIdentifier(DESIGO_ID, desigoId);
         addIdentifier(DESIGO_PROPERTY_ID, desigoPropertyId);
@@ -31,12 +32,9 @@ public class DesigoSensorId extends SensorId {
         return getIdentifier(DESIGO_PROPERTY_ID);
     }
 
-    public String getTrendId() {
-        return trendId;
-    }
 
-    public void setTrendId(String trendId) {
-        this.trendId = trendId;
+    @Override
+    public List<String> getIdentifierKeys() {
+        return List.of(DESIGO_ID, DESIGO_PROPERTY_ID);
     }
-
 }

@@ -1,7 +1,7 @@
 package no.cantara.realestate.sensors;
 
 
-import no.cantara.realestate.semantics.rec.SensorRecObject;
+import no.cantara.realestate.rec.SensorRecObject;
 
 public class MappedSensorId {
 
