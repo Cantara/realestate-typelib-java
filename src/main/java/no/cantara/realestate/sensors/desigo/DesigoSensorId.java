@@ -12,6 +12,7 @@ public class DesigoSensorId extends SensorId implements SensorSystemId {
 
     public static final String DESIGO_ID = "desigoId";
     public static final String DESIGO_PROPERTY_ID = "desigoPropertyId";
+    private String trendId;
 
     public DesigoSensorId(String twinId, String desigoId, String desigoPropertyId) {
         super(twinId);
@@ -36,5 +37,20 @@ public class DesigoSensorId extends SensorId implements SensorSystemId {
     @Override
     public List<String> getIdentifierKeys() {
         return List.of(DESIGO_ID, DESIGO_PROPERTY_ID);
+    }
+
+    public void setTrendId(String trendId) {
+        this.trendId = trendId;
+    }
+
+    public String getTrendId() {
+        return trendId;
+    }
+
+    @Override
+    public String toString() {
+        return "DesigoSensorId{" +
+                "trendId='" + trendId + '\'' +
+                "} " + super.toString();
     }
 }
