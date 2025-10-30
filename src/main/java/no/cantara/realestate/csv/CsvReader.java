@@ -19,7 +19,24 @@ import static org.slf4j.LoggerFactory.getLogger;
 public class CsvReader {
     private static final Logger log = getLogger(CsvReader.class);
 
-    public static CsvCollection parse(String csvFilePath) {
+    /**
+     * Parse CSV file into CsvCollection
+     * @param csvFilePath
+     * @return CsvCollection of all lines
+     * @throws RealEstateCsvException if the file cannot be read, or if a single line causes an error.
+     */
+    public static CsvCollection parse(String csvFilePath) throws RealEstateCsvException {
+        return parse(csvFilePath, false);
+    }
+
+    /**
+     * Parse CSV file into CsvCollection
+     * @param csvFilePath
+     * @param ignoreSingleLineErrors - if true, will log and skip lines that cause errors instead of throwing exception
+     * @return CsvCollection of the lines without errors
+     * @throws RealEstateCsvException if the file cannot be read.
+     */
+    public static CsvCollection parse(String csvFilePath, boolean ignoreSingleLineErrors) throws RealEstateCsvException {
         List<String> columnNames = null;
         List<Map<String, String>> records = new ArrayList<>();
         CsvCollection collection = null;
@@ -35,11 +52,21 @@ public class CsvReader {
             collection = new CsvCollection(columnNames, records);
             for (CSVRecord csvRecord : csvParser) {
                 // Accessing values by Header names
-                Map<String,String> record = new HashMap<>();
-                for (String columnName : columnNames) {
-                    record.put(columnName, csvRecord.get(columnName));
+                try {
+                    Map<String,String> record = new HashMap<>();
+                    for (String columnName : columnNames) {
+                        record.put(columnName, csvRecord.get(columnName));
+                    }
+                    records.add(record);
+                } catch (Exception e) {
+                    log.warn("CsvImport of single line failed. File: {}. Line num: {}: Record: {}. Reason: {}",csvFilePath,
+                            csvRecord.getRecordNumber(), csvRecord, e.getMessage());
+                    if (!ignoreSingleLineErrors) {
+                        throw new RealEstateCsvException("CsvImport of single line failed. File: " + csvFilePath +
+                                ". Line num: " + csvRecord.getRecordNumber() + ": Record: " + csvRecord +
+                                ". Reason: " + e.getMessage(), e);
+                    }
                 }
-                records.add(record);
             }
         } catch (IOException e) {
             log.warn("Failed to read file: {}. Reason: {}", csvFilePath, e.getMessage());
