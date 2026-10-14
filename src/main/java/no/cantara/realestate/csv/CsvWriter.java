@@ -19,13 +19,15 @@ public class CsvWriter {
 
     public CsvWriter(File exportFile, boolean append, String... headerNames) throws IOException {
         try {
-            printer = new CSVPrinter(new FileWriter(exportFile,append), CSVFormat.RFC4180);
-            printer.printRecord(headerNames);
+            printer = new CSVPrinter(new FileWriter(exportFile, append), CSVFormat.RFC4180);
+
+            if (!append || !exportFile.exists() || exportFile.length() == 0) {
+                printer.printRecord(headerNames);
+            }
         } catch (IOException e) {
             e.printStackTrace();
             throw e;
         }
-
     }
 
     public CsvWriter(CSVPrinter printer) {
@@ -39,6 +41,7 @@ public class CsvWriter {
             log.info("Failed to update trendId: {}. Reason: {}", trendId, e.getMessage());
         }
     }
+
     public void writeLastImported(String observationType, Instant lastUpdatedAt) {
         try {
             printer.printRecord(observationType, lastUpdatedAt);
